@@ -1,0 +1,19 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+- main
+
+pool:
+  name: Default
+
+steps:
+- script: mvn clean install
+  displayName: 'build and test'
+
+- script: java -jar target/mvn-Azure-pipeline-1.0-SNAPSHOT.jar
+  displayName: 'run'
+
+
